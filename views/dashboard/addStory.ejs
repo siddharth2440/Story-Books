@@ -1,0 +1,28 @@
+<section class="w-full p-3 font-mono">
+    <div class="newStoryDivision w-[80%] m-auto mt-8">
+        <h1 class="text-2xl font-[700] opacity-70">Add Story</h1>
+        <form action="/dashboard/add" method="post" class="flex flex-col items-start justify-start gap-3 border py-5 mt-5 boxShadow">
+            <div class="title flex w-[70%] ml-5">
+                <label for="title" class="">Title :</label>
+                <input type="text" class="ml-6 border-b border-[#000032] px-5 py-1 w-[80%] focus:outline-none font-mono" name="title" id="">
+            </div>
+            <div class="selection ml-5">
+                <label for="status">Status :</label>
+                <select name="status" id="" class="focus:outline-none border rounded-md py-1 px-2 font-mono">
+                    <option value="public" selected>Public</option>
+                    <option value="private">Private</option>
+                    <option value="unpublished">Unpublished</option>
+                </select>
+            </div>
+
+            <div class="textarea ml-5 w-[80%]">
+                <!-- <label for="">Tell Us your Story</label> -->
+                <textarea name="story" id="" cols="30" rows="10" class="w-[90%] py-2 px-1 border-2 focus:outline-none font-mono focus:border-[#000032] rounded-md "  placeholder="Tell Us your Story "></textarea>
+            </div>
+            <div class="btns ml-5">
+                <a href="/dashboard" class="px-2 py-1 rounded-md text-[#fff] bg-[#3aff28]">Cancel</a>
+                <button type="submit" class="px-2 py-1 rounded-md text-[#fff] bg-[#ff8432]">Save</button>
+            </div>
+        </form>
+    </div>
+</section>

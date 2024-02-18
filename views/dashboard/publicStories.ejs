@@ -1,0 +1,21 @@
+<section>
+    <h1 class="text-[1.3rem] font-[500] opacity-75 text-center">Public stories</h1>
+    <div class="publicStories grid grid-cols-3 gap-3 p-3 mt-4">
+        <% populateAllStories.forEach(element => { %>
+            <% if (element.status=="public") { %>
+                <div class="story boxShadow border flex flex-col items-center justify-center p-1 rounded-2xl">
+                    <% if (element.user._id.toString()===id) { %>
+                        <a href="/dashboard/edit/<%-element._id%>"><i class="ri-edit-fill rounded-lg bg-slate-300 py-1 px-2 place-self-start"></i></a>
+                    <% } %>
+                    <!-- <i class="ri-edit-fill"></i> -->
+                    <h1 class="text-[1rem] w-[70%] text-center font-[700] opacity-80 font-mono"><%-element.title %></h1>
+                    <p class="text-[0.9rem] mt-4 w-[80%] m-auto text-center font-dashBoardFont"><%-element.body%></p>
+                    <div class="author flex items-center justify-center gap-2 border rounded-lg px-2 py-1 bg-[#C6D5EA]">
+                        <img class="h-[1.3rem] w-auto rounded-md" src="<%-element.user.profileImage%>" alt="">
+                        <a href="/dashboard/public-stories/show/<%-element.user._id %>" class="capitalize"><%-element.user.displayName %></a>
+                    </div>
+                </div>
+            <% } %>
+        <% }) %>    
+    </div>
+</section>

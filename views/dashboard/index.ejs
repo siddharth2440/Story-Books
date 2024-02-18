@@ -1,0 +1,42 @@
+<section class="dashboard py-6 px-4">
+    <h1 class="text-black text-[1.9rem] font-[700] opacity-80 -tracking-tight">Dashboard</h1>
+    <div class="userWelcome flex items-start justify-start gap-2">
+        <h1 class="text-[#000000]">Welcome</h1>
+        <span class="uppercase text-[2xl] font-[700] opacity-90"> <%-userName %></span>
+        <div class="addNewStory">
+            <a href="/dashboard/add" class="px-2 py-1 bg-blue-300 rounded-md">+New-Story</a>
+        </div>
+    </div>
+    <p class="text-[1rem]">Here are your stories</p>
+    <% if (!storiesCount) { %>     
+        <h1>Create Your Own public / private Stories</h1>
+        <div class="addNewStory">
+            <a href="/dashboard/add" class="bg-green-400 px-2 py-1 rounded-md shadow-sm">+New-Story</a>
+        </div>
+    <% }else{%>
+        <h1>You've Your Stories</h1>
+        <table class="w-[90%] m-auto">
+            <thead class="border ">
+                <tr class="">
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="border">
+                <% matchTheStories.forEach(element => { %>
+                    <tr class="border gap-3 px-2 py-1">
+                        <td class="px-2 py-1 capitalize"><%-element.title %></td>
+                        <td class="px-6 py-1 capitalize"><%-element.body %></td>
+                        <td class="px-2 py-1 capitalize"><%-element.status %></td>
+                        <td class="flex items-center justify-center gap-3 px-4">
+                            <div class="btn1"><a href="/dashboard/edit/<%-element._id%>" class="bg-green-500 text-[0.9rem] p-1 rounded-md text-[#fffff]">Edit</a></div>
+                            <form action="/dashboard/delete-story/<%-element._id %>?_method=DELETE" class="btn2" method="post"><button type="submit" class="bg-red-500 text-[0.9rem] text-[#fffff] p-1 rounded-md">Remove </button></form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <%} %>
+</section>
